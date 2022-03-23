@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// 文字列のみ
+Route::get('/test', function () {
+    return 'test';
+});
+
+// 必須パラメータ
+Route::get('/required_param/{text}', function ($text) {
+    return $text . "が表示されます";
+});
+
+// 任意パラメータ
+Route::get('/optional_param/{text?}', function ($text = "テキスト") {
+    return $text . "が表示されます";
+});
