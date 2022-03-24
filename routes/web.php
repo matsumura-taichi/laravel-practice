@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,6 @@ Route::get('/required_param/{text}', function ($text) {
 Route::get('/optional_param/{text?}', function ($text = "テキスト") {
     return $text . "が表示されます";
 });
+
+// controller
+Route::get('/{msg?}', [TestController::class, 'index']);
