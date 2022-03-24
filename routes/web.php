@@ -33,3 +33,4 @@ Route::get('/optional_param/{text?}', function ($text = "テキスト") {
 // controller
 Route::get('/', [TestController::class, 'index']);
 Route::post('/', [TestController::class, 'post']);
+Route::get('/verror', [TestController::class, 'verror']);
