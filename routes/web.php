@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+use App\Http\Middleware\FirstMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,4 @@ Route::get('/optional_param/{text?}', function ($text = "テキスト") {
 
 // controller
 Route::get('/', [TestController::class, 'index']);
-Route::post('/', [TestController::class, 'post']);
+Route::post('/', [TestController::class, 'post'])->middleware(FirstMiddleware::class);
