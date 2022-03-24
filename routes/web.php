@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 // 文字列のみ
 Route::get('/test', function () {
     return 'test';
@@ -34,4 +30,4 @@ Route::get('/optional_param/{text?}', function ($text = "テキスト") {
 });
 
 // controller
-Route::get('/{msg?}', [TestController::class, 'index']);
+Route::get('/', [TestController::class, 'index']);

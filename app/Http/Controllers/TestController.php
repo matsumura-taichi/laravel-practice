@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function index($text = "デフォルト")
+    public function index()
     {
-        return $text;
+        return view('index');
     }
 }
