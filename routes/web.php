@@ -32,4 +32,4 @@ Route::get('/optional_param/{text?}', function ($text = "テキスト") {
 
 // controller
 Route::get('/', [TestController::class, 'index']);
-Route::post('/', [TestController::class, 'post'])->middleware(FirstMiddleware::class);
+Route::post('/', [TestController::class, 'post']);
