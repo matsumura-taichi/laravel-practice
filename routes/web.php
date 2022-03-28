@@ -43,6 +43,7 @@ Route::post('/delete', [AuthorController::class, 'remove']);
 Route::get('/find', [AuthorController::class, 'find']);
 Route::post('/find', [AuthorController::class, 'search']);
 Route::get('/author/{author}', [AuthorController::class, 'bind']);
+Route::get('/relation', [AuthorController::class, 'relate']);
 // Route::get('/', [TestController::class, 'index']);
 // Route::post('/', [TestController::class, 'post']);
 // Route::get('/verror', [TestController::class, 'verror']);
