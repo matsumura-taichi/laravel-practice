@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -9,7 +10,7 @@ class AuthorController extends Controller
 {
     public function index()
     {
-        $items = DB::table('authors')->get();
+        $items = Author::all();
         return view('index', ['items' => $items]);
     }
 
