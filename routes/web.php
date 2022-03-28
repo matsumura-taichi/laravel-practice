@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 // use App\Http\Middleware\FirstMiddleware;
 
 /*
@@ -45,3 +46,9 @@ Route::get('/author/{author}', [AuthorController::class, 'bind']);
 // Route::get('/', [TestController::class, 'index']);
 // Route::post('/', [TestController::class, 'post']);
 // Route::get('/verror', [TestController::class, 'verror']);
+
+Route::prefix('book')->group(function () {
+  Route::get('/', [BookController::class, 'index']);
+  Route::get('/add', [BookController::class, 'add']);
+  Route::post('/add', [BookController::class, 'create']);
+});
