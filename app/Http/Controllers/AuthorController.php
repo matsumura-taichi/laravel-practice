@@ -47,4 +47,18 @@ class AuthorController extends Controller
         DB::update('update authors set name =:name, age =:age, nationality =:nationality where id =:id', $param);
         return redirect('/');
     }
+
+    public function delete(Request $request)
+    {
+        $param = ['id' => $request->id];
+        $item = DB::select('select * from authors where id = :id', $param);
+        return view('delete', ['form' => $item[0]]);
+    }
+
+    public function remove(Request $request)
+    {
+        $param = ['id' => $request->id];
+        DB::delete('delete from authors where id =:id', $param);
+        return redirect('/');
+    }
 }
