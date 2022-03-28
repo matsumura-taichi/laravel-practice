@@ -31,9 +31,8 @@ class AuthorController extends Controller
 
     public function edit(Request $request)
     {
-        $param = ['id' => $request->id];
-        $item = DB::select('select * from authors where id = :id', $param);
-        return view('edit', ['form' => $item[0]]);
+        $item = DB::table('authors')->where('id', $request->id)->first();
+        return view('edit', ['form' => $item]);
     }
 
     public function update(Request $request)
@@ -44,7 +43,7 @@ class AuthorController extends Controller
             'age' => $request->age,
             'nationality' => $request->nationality,
         ];
-        DB::update('update authors set name =:name, age =:age, nationality =:nationality where id =:id', $param);
+        DB::table('authors')->where('id', $request->id)->update($param);
         return redirect('/');
     }
 
