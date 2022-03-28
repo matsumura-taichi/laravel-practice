@@ -29,19 +29,16 @@ class AuthorController extends Controller
 
     public function edit(Request $request)
     {
-        $item = DB::table('authors')->where('id', $request->id)->first();
-        return view('edit', ['form' => $item]);
+        $author = Author::find($request->id);
+        return view('edit', ['form' => $author]);
     }
 
     public function update(Request $request)
     {
-        $param = [
-            'id' => $request->id,
-            'name' => $request->name,
-            'age' => $request->age,
-            'nationality' => $request->nationality,
-        ];
-        DB::table('authors')->where('id', $request->id)->update($param);
+        $this->validate($request, Author::$rules);
+        $form = $request->all();
+        unset($form['_token']);
+        Author::where('id', $request->id)->update($form);
         return redirect('/');
     }
 
