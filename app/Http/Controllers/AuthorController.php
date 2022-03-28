@@ -67,7 +67,7 @@ class AuthorController extends Controller
 
     public function search(Request $request)
     {
-        $item = Author::find($request->input);
+        $item = Author::where('name', 'LIKE',"%{$request->input}%")->first();
         $param = [
             'item' => $item,
             'input' => $request->input
