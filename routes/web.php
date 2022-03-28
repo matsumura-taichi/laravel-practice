@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\AuthorController;
 // use App\Http\Middleware\FirstMiddleware;
 
 /*
@@ -15,22 +16,23 @@ use App\Http\Controllers\TestController;
 |
 */
 
-// 文字列のみ
-Route::get('/test', function () {
-    return 'test';
-});
+// // 文字列のみ
+// Route::get('/test', function () {
+//     return 'test';
+// });
 
-// 必須パラメータ
-Route::get('/required_param/{text}', function ($text) {
-    return $text . "が表示されます";
-});
+// // 必須パラメータ
+// Route::get('/required_param/{text}', function ($text) {
+//     return $text . "が表示されます";
+// });
 
-// 任意パラメータ
-Route::get('/optional_param/{text?}', function ($text = "テキスト") {
-    return $text . "が表示されます";
-});
+// // 任意パラメータ
+// Route::get('/optional_param/{text?}', function ($text = "テキスト") {
+//     return $text . "が表示されます";
+// });
 
 // controller
-Route::get('/', [TestController::class, 'index']);
-Route::post('/', [TestController::class, 'post']);
-Route::get('/verror', [TestController::class, 'verror']);
+Route::get('/', [AuthorController::class, 'index']);
+// Route::get('/', [TestController::class, 'index']);
+// Route::post('/', [TestController::class, 'post']);
+// Route::get('/verror', [TestController::class, 'verror']);
