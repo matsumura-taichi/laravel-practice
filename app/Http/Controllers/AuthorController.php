@@ -44,13 +44,13 @@ class AuthorController extends Controller
 
     public function delete(Request $request)
     {
-        $item = DB::table('authors')->where('id', $request->id)->first();
-        return view('delete', ['form' => $item]);
+        $author = Author::find($request->id);
+        return view('delete', ['form' => $author]);
     }
 
     public function remove(Request $request)
     {
-        DB::table('authors')->where('id', $request->id)->delete();
+        Author::find($request->id)->delete();
         return redirect('/');
     }
 
