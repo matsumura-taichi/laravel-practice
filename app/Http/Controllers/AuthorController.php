@@ -9,7 +9,7 @@ class AuthorController extends Controller
 {
     public function index()
     {
-        $items = DB::select('select * from authors');
+        $items = DB::table('authors')->get();
         return view('index', ['items' => $items]);
     }
 
