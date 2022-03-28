@@ -56,8 +56,22 @@ class AuthorController extends Controller
 
     public function remove(Request $request)
     {
-        $param = ['id' => $request->id];
         DB::table('authors')->where('id', $request->id)->delete();
         return redirect('/');
+    }
+
+    public function find()
+    {
+        return view('find', ['input' => '']);
+    }
+
+    public function search(Request $request)
+    {
+        $item = Author::find($request->input);
+        $param = [
+            'item' => $item,
+            'input' => $request->input
+        ];
+        return view('find', $param);
     }
 }
