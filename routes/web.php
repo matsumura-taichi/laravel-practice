@@ -33,6 +33,8 @@ use App\Http\Controllers\AuthorController;
 
 // controller
 Route::get('/', [AuthorController::class, 'index']);
+Route::get('/add', [AuthorController::class, 'add']);
+Route::post('/add', [AuthorController::class, 'create']);
 // Route::get('/', [TestController::class, 'index']);
 // Route::post('/', [TestController::class, 'post']);
 // Route::get('/verror', [TestController::class, 'verror']);
