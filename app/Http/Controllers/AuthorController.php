@@ -25,7 +25,7 @@ class AuthorController extends Controller
             'age' => $request->age,
             'nationality' => $request->nationality,
         ];
-        DB::insert('insert into authors (name, age, nationality) values (:name, :age, :nationality)', $param);
+        DB::table('authors')->insert($param);
         return redirect('/');
     }
 
