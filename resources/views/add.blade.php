@@ -1,20 +1,17 @@
 @extends('layouts.default')
 <style>
-    th {
+  th {
       background-color: #289ADC;
       color: white;
       padding: 5px 40px;
     }
-    tr:nth-child(4) td{
-      padding: 10px;
+    tr:nth-child(odd) td{
+      background-color: #FFFFFF;
     }
     td {
       padding: 25px 40px;
       background-color: #EEEEEE;
       text-align: center;
-    }
-    input {
-      padding: 5px;
     }
     button {
       padding: 10px 20px;
@@ -26,7 +23,16 @@
 @section('title', 'add.blade.php')
 
 @section('content')
-<form action="/add" method="POST">
+@if (count($errors) > 0)
+<ul>
+  @foreach ($errors->all() as $error)
+  <li>
+    {{$error}}
+  </li>
+  @endforeach
+</ul>
+@endif
+<form action="/add" method="post">
   <table>
     @csrf
     <tr>
@@ -58,7 +64,6 @@
       <td>
         <button>送信</button>
       </td>
-    </tr>
   </table>
 </form>
 @endsection

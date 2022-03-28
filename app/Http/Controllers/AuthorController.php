@@ -21,12 +21,9 @@ class AuthorController extends Controller
 
     public function create(Request $request)
     {
-        $param = [
-            'name' => $request->name,
-            'age' => $request->age,
-            'nationality' => $request->nationality,
-        ];
-        DB::table('authors')->insert($param);
+        $this->validate($request, Author::$rules);
+        $form = $request->all();
+        Author::create($form);
         return redirect('/');
     }
 
